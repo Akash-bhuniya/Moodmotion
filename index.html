@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#101126" />
+  <meta name="description" content="A playful, animated emoji mood slider." />
+  <title>Emoji Mood Slider</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="intro-splash" id="introSplash" aria-hidden="true">
+    <div class="splash-brand" id="splashBrand"><span class="brand-mark">✳</span><span>mood<span class="brand-light">motion</span></span></div>
+    <div class="splash-line"></div>
+  </div>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Emoji Mood home">
+        <span class="brand-mark">✳</span><span>mood<span class="brand-light">motion</span></span>
+      </a>
+      <div class="top-actions">
+        <span class="live-label"><span class="live-dot"></span> MOOD PLAYGROUND</span>
+        <button class="icon-button" id="fullscreenToggle" type="button" aria-label="Expand emoji card" title="Expand emoji card">⛶</button>
+        <button class="icon-button" id="themeToggle" type="button" aria-label="Toggle light and dark theme" title="Toggle theme">☼</button>
+      </div>
+    </header>
+
+    <section class="intro">
+      <p class="eyebrow" id="tagline"><span id="typedTagline"></span><span class="type-caret">|</span></p>
+      <h1>What's your <span>mood</span> today?</h1>
+      <p class="subtitle">Slide through the feels. Find the emoji that says it all.</p>
+    </section>
+
+    <section class="slider-card" id="sliderBox" aria-label="Emoji mood slider">
+      <div class="card-glow"></div>
+      <button class="card-close-fullscreen" id="cardFullscreenClose" type="button" aria-label="Close fullscreen card" title="Close fullscreen">×</button>
+      <div class="card-topline">
+        <span class="mood-tag"><span class="tag-dot"></span><span id="moodCategory">GOOD VIBES</span></span>
+        <div class="card-tools">
+          <span class="counter" id="counter">01 <i>/</i> 16</span>
+          <button class="mini-icon-button" id="favoriteButton" type="button" aria-label="Save this mood" title="Save mood">♡</button>
+        </div>
+      </div>
+
+      <div class="emoji-stage" id="emojiStage">
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+        <span class="spark spark-one">✦</span>
+        <span class="spark spark-two">✧</span>
+        <span class="spark spark-three">·</span>
+        <div class="emoji-effects" aria-hidden="true">
+          <span class="effect-puff puff-one"></span><span class="effect-puff puff-two"></span>
+          <span class="effect-heart heart-one">♥</span><span class="effect-heart heart-two">♥</span>
+          <span class="effect-tear tear-one"></span><span class="effect-tear tear-two"></span>
+          <span class="effect-zzz">Zzz</span><span class="effect-star">✦</span>
+          <span class="effect-sweat"></span><span class="effect-smile"></span>
+        </div>
+        <div class="emoji-display" id="emojiDisplay" role="img" aria-label="Happy face">😃</div>
+      </div>
+
+      <div class="mood-copy" aria-live="polite">
+        <p class="mood-kicker" id="moodKicker">THE HAPPY ONE</p>
+        <h2 class="emoji-message" id="emojiMessage">Feeling happy!</h2>
+        <p class="mood-description" id="moodDescription">Good energy looks great on you.</p>
+      </div>
+
+      <div class="progress-track" aria-label="Slider progress">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+
+      <div class="controls">
+        <button class="nav-button" id="prevButton" type="button" aria-label="Previous emoji">←</button>
+        <button class="play-button" id="playButton" type="button" aria-label="Pause autoplay"><span id="playIcon">Ⅱ</span><span id="playText">Pause</span></button>
+        <button class="nav-button next-button" id="nextButton" type="button" aria-label="Next emoji">→</button>
+      </div>
+
+      <div class="extra-controls">
+        <button class="utility-button" id="randomButton" type="button"><span>✧</span> Surprise me</button>
+        <button class="utility-button" id="soundButton" type="button" aria-pressed="false"><span>♫</span> Sound off</button>
+        <button class="utility-button" id="ambienceButton" type="button" aria-pressed="false"><span>◖</span> Ambient off</button>
+        <button class="utility-button" id="intensityButton" type="button" aria-pressed="true"><span>✦</span> Effects boost on</button>
+      </div>
+
+      <div class="dots" id="dots" aria-label="Choose an emoji"></div>
+      <div class="history-wrap"><span class="history-label">RECENT MOODS</span><div class="mood-history" id="moodHistory" aria-label="Recently viewed moods"></div></div>
+      <div class="card-footer"><span>← → <span>navigate · Space play · F fullscreen · R random</span></span><span>SWIPE TO EXPLORE</span></div>
+    </section>
+
+    <footer class="page-footer">
+      <span>Made for every kind of feeling.</span>
+      <label class="speed-control" for="speedSelect">AUTO SPEED
+        <select id="speedSelect" aria-label="Autoplay speed">
+          <option value="5000">Slow</option>
+          <option value="3000" selected>Normal</option>
+          <option value="1500">Fast</option>
+        </select>
+      </label>
+    </footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
